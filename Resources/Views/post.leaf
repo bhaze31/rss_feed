@@ -1,0 +1,26 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    #if(post):
+        <title>#(post.title)</title>
+    #else:
+        <title>Missing Post</title>
+    #endif
+</head>
+<body>
+    #if(post):
+        <h1>#(post.title)</h1>
+        <p>#date(post.createdAt, "yyyy-MM-dd")</p>
+        <p>#(post.blurb)</p>
+        <p>#(post.body)</p>
+        #for(category in post.categories):
+            <p>#(category)</p>
+        #endfor
+    #else:
+        <h1>Cannot find post</h1>
+    #endif
+
+    <a href="/posts">Home</a>
+</body>
+</html>
